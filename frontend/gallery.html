@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gallery 📷</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -23,11 +26,19 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.98); }
-      to { opacity: 1; transform: scale(1); }
+      from {
+        opacity: 0;
+        transform: scale(0.98);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
 
-    header, footer {
+    header,
+    footer {
       background: linear-gradient(to right, #0f0f0f, #1e1e1e);
       padding: 1rem 2rem;
       text-align: center;
@@ -130,6 +141,7 @@
     }
   </style>
 </head>
+
 <body>
   <header>
     <h1>📷 Your Smile Gallery</h1>
@@ -179,4 +191,5 @@
     window.onload = loadGallery;
   </script>
 </body>
+
 </html>

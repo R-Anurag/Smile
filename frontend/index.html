@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -25,11 +26,19 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
 
-    header, footer {
+    header,
+    footer {
       background: linear-gradient(to right, #0f0f0f, #1e1e1e);
       padding: 1rem 2rem;
       text-align: center;
@@ -109,8 +118,13 @@
       transition: width 0.3s ease;
     }
 
-    .progress-green { background: #00ff99; }
-    .progress-yellow { background: #ffd700; }
+    .progress-green {
+      background: #00ff99;
+    }
+
+    .progress-yellow {
+      background: #ffd700;
+    }
 
     .btn-glow {
       background: #000;
@@ -158,7 +172,9 @@
       color: #888;
     }
 
-    canvas { display: none; }
+    canvas {
+      display: none;
+    }
 
     /* Background switcher styles */
     .background-selector {
@@ -166,7 +182,8 @@
       text-align: center;
     }
 
-    .bg-thumbnails, .gradient-buttons {
+    .bg-thumbnails,
+    .gradient-buttons {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -174,7 +191,8 @@
       margin-top: 1rem;
     }
 
-    .bg-thumb, .gradient-btn {
+    .bg-thumb,
+    .gradient-btn {
       width: 60px;
       height: 60px;
       border-radius: 8px;
@@ -183,7 +201,8 @@
       transition: transform 0.2s ease;
     }
 
-    .bg-thumb:hover, .gradient-btn:hover {
+    .bg-thumb:hover,
+    .gradient-btn:hover {
       transform: scale(1.1);
       border-color: #ff00ff;
     }
@@ -193,6 +212,7 @@
     }
   </style>
 </head>
+
 <body>
   <header>
     <h1>📸 Smile Capture Booth</h1>
@@ -214,10 +234,14 @@
 
       <div class="progress-wrapper">
         <div class="progress-label"><span>Images Captured</span><span id="progress-text">0/3</span></div>
-        <div class="progress-bar"><div id="progress-bar" class="progress-fill progress-green" style="width: 0%"></div></div>
+        <div class="progress-bar">
+          <div id="progress-bar" class="progress-fill progress-green" style="width: 0%"></div>
+        </div>
 
         <div class="progress-label mt-3"><span>Smile Streak</span><span id="smile-text">0/3</span></div>
-        <div class="progress-bar"><div id="smile-progress" class="progress-fill progress-yellow" style="width: 0%"></div></div>
+        <div class="progress-bar">
+          <div id="smile-progress" class="progress-fill progress-yellow" style="width: 0%"></div>
+        </div>
       </div>
 
       <div class="d-flex gap-3 justify-content-center mt-4">
@@ -232,20 +256,38 @@
       <div class="background-selector">
         <h3>Change Background</h3>
         <div class="bg-thumbnails">
-               <div class="bg-thumb" style="background-image: url('/Smile/static/images/bg1.png');" onclick="document.body.style.background='url(/Smile/static/images/bg1.png) no-repeat center center fixed';document.body.style.backgroundSize='cover';"></div>
-      <div class="bg-thumb" style="background-image: url('/Smile/static/images/bg2.png');" onclick="document.body.style.background='url(/Smile/static/images/bg2.png) no-repeat center center fixed';document.body.style.backgroundSize='cover';"></div>
-      <div class="bg-thumb" style="background-image: url('/Smile/static/images/bg3.png');" onclick="document.body.style.background='url(/Smile/static/images/bg3.png) no-repeat center center fixed';document.body.style.backgroundSize='cover';"></div>
-      <div class="bg-thumb" style="background-image: url('/Smile/static/images/bg4.png');" onclick="document.body.style.background='url(/Smile/static/images/bg4.png) no-repeat center center fixed';document.body.style.backgroundSize='cover';"></div>
-      <div class="bg-thumb" style="background-image: url('/Smile/static/images/bg5.png');" onclick="document.body.style.background='url(/Smile/static/images/bg5.png) no-repeat center center fixed';document.body.style.backgroundSize='cover';"></div>
-      <div class="bg-thumb" style="background-image: url('/Smile/static/images/bg6.png');" onclick="document.body.style.background='url(/Smile/static/images/bg6.png) no-repeat center center fixed';document.body.style.backgroundSize='cover';"></div>
-      <div class="bg-thumb" style="background-image: url('/Smile/static/images/bg7.png');" onclick="document.body.style.background='url(/Smile/static/images/bg7.png) no-repeat center center fixed';document.body.style.backgroundSize='cover';"></div>
+          <div class="bg-thumb" style="background-image: url('/Smile/static/images/bg1.png');"
+            onclick="document.body.style.background='url(/Smile/static/images/bg1.png) no-repeat center center fixed';document.body.style.backgroundSize='cover';">
+          </div>
+          <div class="bg-thumb" style="background-image: url('/Smile/static/images/bg2.png');"
+            onclick="document.body.style.background='url(/Smile/static/images/bg2.png) no-repeat center center fixed';document.body.style.backgroundSize='cover';">
+          </div>
+          <div class="bg-thumb" style="background-image: url('/Smile/static/images/bg3.png');"
+            onclick="document.body.style.background='url(/Smile/static/images/bg3.png) no-repeat center center fixed';document.body.style.backgroundSize='cover';">
+          </div>
+          <div class="bg-thumb" style="background-image: url('/Smile/static/images/bg4.png');"
+            onclick="document.body.style.background='url(/Smile/static/images/bg4.png) no-repeat center center fixed';document.body.style.backgroundSize='cover';">
+          </div>
+          <div class="bg-thumb" style="background-image: url('/Smile/static/images/bg5.png');"
+            onclick="document.body.style.background='url(/Smile/static/images/bg5.png) no-repeat center center fixed';document.body.style.backgroundSize='cover';">
+          </div>
+          <div class="bg-thumb" style="background-image: url('/Smile/static/images/bg6.png');"
+            onclick="document.body.style.background='url(/Smile/static/images/bg6.png) no-repeat center center fixed';document.body.style.backgroundSize='cover';">
+          </div>
+          <div class="bg-thumb" style="background-image: url('/Smile/static/images/bg7.png');"
+            onclick="document.body.style.background='url(/Smile/static/images/bg7.png) no-repeat center center fixed';document.body.style.backgroundSize='cover';">
+          </div>
         </div>
 
         <div class="gradient-buttons">
-          <div class="gradient-btn" style="background: linear-gradient(135deg, #ff9a9e, #fad0c4);" onclick="setGradientBg('linear-gradient(135deg, #ff9a9e, #fad0c4)')"></div>
-          <div class="gradient-btn" style="background: linear-gradient(135deg, #a18cd1, #fbc2eb);" onclick="setGradientBg('linear-gradient(135deg, #a18cd1, #fbc2eb)')"></div>
-          <div class="gradient-btn" style="background: linear-gradient(135deg, #89f7fe, #66a6ff);" onclick="setGradientBg('linear-gradient(135deg, #89f7fe, #66a6ff)')"></div>
-          <div class="gradient-btn" style="background: linear-gradient(135deg, #ffecd2, #fcb69f);" onclick="setGradientBg('linear-gradient(135deg, #ffecd2, #fcb69f)')"></div>
+          <div class="gradient-btn" style="background: linear-gradient(135deg, #ff9a9e, #fad0c4);"
+            onclick="setGradientBg('linear-gradient(135deg, #ff9a9e, #fad0c4)')"></div>
+          <div class="gradient-btn" style="background: linear-gradient(135deg, #a18cd1, #fbc2eb);"
+            onclick="setGradientBg('linear-gradient(135deg, #a18cd1, #fbc2eb)')"></div>
+          <div class="gradient-btn" style="background: linear-gradient(135deg, #89f7fe, #66a6ff);"
+            onclick="setGradientBg('linear-gradient(135deg, #89f7fe, #66a6ff)')"></div>
+          <div class="gradient-btn" style="background: linear-gradient(135deg, #ffecd2, #fcb69f);"
+            onclick="setGradientBg('linear-gradient(135deg, #ffecd2, #fcb69f)')"></div>
         </div>
       </div>
     </div>
@@ -354,4 +396,5 @@
     window.onload = startCamera;
   </script>
 </body>
+
 </html>
