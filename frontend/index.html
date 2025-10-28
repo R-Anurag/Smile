@@ -9,13 +9,14 @@
   <style>
     * {
       box-sizing: border-box;
+      transition: background 0.4s ease, box-shadow 0.4s ease, color 0.4s ease;
     }
 
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #000000, #111111, #1a1a1a);
-      color: #fff;
+      background: url('/Smile/static/images/bg-spotlight.jpg') center/cover fixed no-repeat;
+      color: #222;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -39,17 +40,20 @@
 
     header,
     footer {
-      background: linear-gradient(to right, #0f0f0f, #1e1e1e);
-      padding: 1rem 2rem;
+      background: linear-gradient(90deg, #3a0ca3, #7209b7, #4361ee, #4cc9f0);
+      color: #fff;
       text-align: center;
-      border-bottom: 2px solid #ff00ff44;
+      padding: 1rem 2rem;
+      border: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
+
 
     header h1 {
       margin: 0;
       font-size: 2rem;
       letter-spacing: 2px;
-      color: #ff00ff;
+      color: #fff;
       text-shadow: 0 0 5px #ff00ffaa;
     }
 
@@ -73,27 +77,41 @@
       padding: 2rem;
     }
 
-    .glass-card {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(12px);
-      border-radius: 16px;
-      border: 1px solid #ffffff22;
-      padding: 2rem;
-      width: 100%;
-      max-width: 720px;
-      box-shadow: 0 0 20px #ff00ff33;
-      transition: transform 0.3s;
-    }
+  .glass-card {
+  background: linear-gradient(145deg, #faf7ff, #f0eaff);
+  border: 1px solid rgba(200, 180, 255, 0.4);
+  box-shadow: 0 6px 25px rgba(180, 160, 255, 0.15);
+  backdrop-filter: blur(18px);
+  border-radius: 24px;
+  padding: 2rem 2.5rem;
+  color: #222;
+}
 
-    .glass-card:hover {
-      transform: scale(1.02);
-    }
 
-    .video-container video {
-      width: 100%;
-      border-radius: 1rem;
-      border: 4px solid #ff00ff44;
-    }
+
+  .glass-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+  }
+
+  .video-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.video-container video {
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 4 / 3;
+  background: #fff;
+  border-radius: 8px;
+  border: 6px solid #fff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  padding-bottom: 1.8rem; 
+  background-color: #fdfdfd;
+}
+
 
     .progress-wrapper {
       margin: 1.5rem 0;
@@ -119,31 +137,31 @@
     }
 
     .progress-green {
-      background: #00ff99;
+      background: linear-gradient(90deg, #66ffcc, #00b4d8);
+    }
+    .progress-yellow {
+      background: linear-gradient(90deg, #fbc2eb, #a6c0fe);
     }
 
-    .progress-yellow {
-      background: #ffd700;
-    }
 
     .btn-glow {
-      background: #000;
-      border: 2px solid #ff00ff;
-      color: #ff00ff;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-shadow: 0 0 5px #ff00ff66;
-      box-shadow: 0 0 10px #ff00ff33;
-    }
+    background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    padding: 0.7rem 1.4rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(166, 193, 238, 0.5);
+    transition: all 0.3s ease;
+  }
+  .btn-glow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(166, 193, 238, 0.6);
+  }
 
-    .btn-glow:hover {
-      background: #ff00ff;
-      color: #000;
-      box-shadow: 0 0 15px #ff00ff;
-    }
+
 
     #capturedImages {
       display: flex;
@@ -197,19 +215,58 @@
       height: 60px;
       border-radius: 8px;
       cursor: pointer;
-      border: 2px solid #ff00ff55;
+      border: 2px solid #ccc;
       transition: transform 0.2s ease;
     }
 
     .bg-thumb:hover,
     .gradient-btn:hover {
       transform: scale(1.1);
-      border-color: #ff00ff;
+      border-color: #4361ee;
     }
 
     .gradient-btn {
       display: inline-block;
     }
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .glass-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 24px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.4), rgba(255,255,255,0));
+      pointer-events: none;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    #themeButton {
+      background: linear-gradient(135deg, #89f7fe, #66a6ff);
+      border: none;
+      color: white;
+      font-weight: 600;
+      padding: 0.6rem 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 3px 8px rgba(102, 166, 255, 0.4);
+      transition: all 0.3s ease;
+    }
+    #themeButton:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(102, 166, 255, 0.5);
+    }
+
+
   </style>
 </head>
 
@@ -220,6 +277,9 @@
       <a href="/">Home</a>
       <a href="gallery.html">Gallery</a>
     </nav>
+    <div class="theme-toggle">
+     <button id="themeButton" onclick="toggleTheme()">Theme</button>
+    </div>
   </header>
 
   <main>
@@ -254,7 +314,7 @@
 
       <!-- Background Selector -->
       <div class="background-selector">
-        <h3>Change Background</h3>
+        <h3 style="color:#333;">Try a Background</h3>
         <div class="bg-thumbnails">
           <div class="bg-thumb" style="background-image: url('/Smile/static/images/bg1.png');"
             onclick="document.body.style.background='url(/Smile/static/images/bg1.png) no-repeat center center fixed';document.body.style.backgroundSize='cover';">
@@ -392,8 +452,84 @@
       document.body.style.background = gradient;
       document.body.style.backgroundAttachment = 'fixed';
     }
+  // ---- THEME HANDLER ----
+    const themes = {
+      white: {
+        card: "linear-gradient(145deg, #ffffff, #f1f2f6)",
+        border: "rgba(220,220,220,0.6)",
+        shadow: "0 8px 25px rgba(0,0,0,0.08)",
+        button: "linear-gradient(135deg, #89f7fe, #66a6ff)",
+        bg: "#f8f9fb"
+      },
+      pink: {
+        card: "linear-gradient(145deg, #fff5f8, #fceefc)",
+        border: "rgba(255,182,193,0.4)",
+        shadow: "0 6px 22px rgba(255,192,203,0.2)",
+        button: "linear-gradient(135deg, #fbc2eb, #a6c1ee)",
+        bg: "#fff9fb"
+      },
+      blue: {
+        card: "linear-gradient(145deg, #f7faff, #e6f0ff)",
+        border: "rgba(173,216,230,0.5)",
+        shadow: "0 6px 25px rgba(100,149,237,0.15)",
+        button: "linear-gradient(135deg, #89f7fe, #66a6ff)",
+        bg: "#eef4ff"
+      },
+      peach: {
+        card: "linear-gradient(145deg, #fff6f0, #ffe8d6)",
+        border: "rgba(255, 195, 150, 0.5)",
+        shadow: "0 8px 25px rgba(255, 180, 130, 0.2)",
+        button: "linear-gradient(135deg, #fdbb2d, #ff7e5f)",
+        bg: "#fff8f3"
+      },
+      lavender: {
+        card: "linear-gradient(145deg, #faf7ff, #f0eaff)",
+        border: "rgba(200, 180, 255, 0.4)",
+        shadow: "0 6px 25px rgba(180, 160, 255, 0.15)",
+        button: "linear-gradient(135deg, #a18cd1, #fbc2eb)",
+        bg: "#f7f3ff"
+      },
+      mint: {
+        card: "linear-gradient(145deg, #f0fff4, #e2ffef)",
+        border: "rgba(180, 255, 210, 0.5)",
+        shadow: "0 6px 25px rgba(120, 220, 180, 0.15)",
+        button: "linear-gradient(135deg, #96fbc4, #f9f586)",
+        bg: "#f5fff8"
+      }
+    };
 
-    window.onload = startCamera;
+    let currentTheme = localStorage.getItem("theme") || "white";
+
+    function applyTheme(themeName) {
+      const theme = themes[themeName];
+      const card = document.querySelector(".glass-card");
+      const buttons = document.querySelectorAll(".btn-glow");
+
+      if (card) {
+        card.style.background = theme.card;
+        card.style.border = `1px solid ${theme.border}`;
+        card.style.boxShadow = theme.shadow;
+      }
+      document.body.style.backgroundColor = theme.bg;
+
+      buttons.forEach(btn => {
+        btn.style.background = theme.button;
+      });
+
+      localStorage.setItem("theme", themeName);
+    }
+
+    function toggleTheme() {
+      const keys = Object.keys(themes);
+      const currentIndex = keys.indexOf(currentTheme);
+      const nextIndex = (currentIndex + 1) % keys.length;
+      currentTheme = keys[nextIndex];
+      applyTheme(currentTheme);
+    }
+
+    window.addEventListener("load", () => applyTheme(currentTheme));
+
+  window.onload = startCamera;
   </script>
 </body>
 
