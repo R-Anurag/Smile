@@ -1,12 +1,15 @@
-import base64
-import os
-import random
-import zipfile
-from io import BytesIO
+# --- Standard library imports ---
+import base64        # For encoding/decoding binary data (e.g., images)
+import os            # For interacting with the operating system (paths, files, etc.)
+import random        # For generating random values (e.g., filenames, IDs)
+import zipfile       # For creating and extracting ZIP files
+from io import BytesIO  # For handling in-memory byte streams (e.g., sending files via Flask)
 
-import cv2
-import numpy as np
-from flask import Flask, jsonify, render_template, request, send_file
+# --- Third-party library imports ---
+import cv2           # OpenCV for image processing and computer vision tasks
+import numpy as np    # NumPy for numerical operations and array manipulations
+from flask import Flask, jsonify, render_template, request, send_file  # Flask web framework components
+
 
 # If you use CNN
 from tensorflow.keras.models import load_model
